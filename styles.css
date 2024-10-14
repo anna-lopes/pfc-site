@@ -147,7 +147,7 @@ main {
 textarea {
   width: 100%;
   padding: 15px;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   border-radius: 10px;
   box-sizing: border-box;
   resize: none;
@@ -184,4 +184,57 @@ button:hover {
 .ai-message {
   background-color: #f1f0f0;
   align-self: flex-start;
+}
+
+/*----------------------------------------------*/
+
+.avatar-selection-container {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.avatar-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border 0.3s;
+}
+
+.avatar:hover {
+  border: 3px solid #663399; /* Cor ao passar o mouse */
+}
+
+.selected-avatar {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/*-----------------*/
+
+.alert {
+  background-color: #7f41e4af;
+  color: #000000;
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  position: fixed;
+}
+
+.hidden {
+  display: none;
 }
