@@ -7,16 +7,9 @@ const app = express();
 const port = 3000;
 app.use(express.static('public')); // Serve static files from the 'public' directory
   
-// Permitir requisições de múltiplas origens
-const allowedOrigins = ['http://127.0.0.1:5500', 'http://localhost:5500'];
+// Permitir requisições apenas da origem específica
 app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-            callback(null, origin);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    }
+  origin: 'https://pfc-site-main.vercel.app'
 }));
 
 const uri = "mongodb+srv://annalopesjuju:1ZnOGViVpiUawLD5@cluster0.4tbpi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
