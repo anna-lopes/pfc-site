@@ -192,23 +192,7 @@
 
     <!-- Conteúdo do chatbot -->
     <main>
-    <!-- Aviso de seleção de avatar -->
-<div id="alert-message" class="alert">
-    <div class="avatar-selection-container">
-        <h2>Escolha seu Avatar</h2>
-        <p>Por favor, selecione a foto que você mais gosta:</p>
-        <div class="avatar-grid">
-            <img src="anna.png" alt="Avatar Anna" class="avatar" onclick="selectAvatar('avatar1.png')">
-            <img src="nic.png" alt="Avatar Nic" class="avatar" onclick="selectAvatar('avatar2.png')">
-            <img src="nik.png" alt="Avatar Nik" class="avatar" onclick="selectAvatar('avatar3.png')">
-        </div>
-        <div id="selected-avatar" class="selected-avatar"></div>
-    </div>
-</div>
 
-
-            </div>
-        </div>
         <div class="chat-container">
             <div id="chat-box" class="chat-box"></div>
             <div class="typing-indicator" id="typing">Digitando...</div>
@@ -231,7 +215,7 @@
 
         import { GoogleGenerativeAI } from "@google/generative-ai";
 
-        const API_KEY = "AIzaSyBuQuJwFETwcsghHOuibjrUCAmkmwud4gs";
+        const API_KEY = "AIzaSyC5CQDOAEmrNbiRR7La6a7pBEB39AY-jNI";
         const genAI = new GoogleGenerativeAI(API_KEY);
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-002" });
 
@@ -290,7 +274,6 @@
         async function run() {
             const promptUsuario = document.getElementById("prompt").value;
 
-            enviarMensagem(promptUsuario);
             // Adiciona a mensagem do usuário ao histórico
             history.push({
                 role: "user",
@@ -342,14 +325,18 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        function enviarMensagem(mensagem) {
+        function enviarMensagem() {
+            const mensagem = document.getElementById('prompt').value;
+
+            // Limpa o campo de entrada
+            document.getElementById("prompt").value = "";
 
             const dados = {
                 usuario: 'Usuário',
                 mensagem: mensagem
             };
 
-            axios.post('https://render-e3fe.onrender.com/historico', dados)
+            axios.post('https://render-9441.onrender.com/historico', dados)
                 .then(response => {
                     console.log('Resposta do servidor:', response.data);
                 })
