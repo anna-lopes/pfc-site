@@ -192,7 +192,7 @@
 
     <!-- Conteúdo do chatbot -->
     <main>
-
+   
         <div class="chat-container">
             <div id="chat-box" class="chat-box"></div>
             <div class="typing-indicator" id="typing">Digitando...</div>
@@ -215,7 +215,7 @@
 
         import { GoogleGenerativeAI } from "@google/generative-ai";
 
-        const API_KEY = "AIzaSyAZiRcKQnUxl8KmDmux1KUreqnjRD_10Ew";
+        const API_KEY = "AIzaSyBuQuJwFETwcsghHOuibjrUCAmkmwud4gs";
         const genAI = new GoogleGenerativeAI(API_KEY);
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
@@ -274,6 +274,7 @@
         async function run() {
             const promptUsuario = document.getElementById("prompt").value;
 
+            enviarMensagem(promptUsuario);
             // Adiciona a mensagem do usuário ao histórico
             history.push({
                 role: "user",
@@ -325,18 +326,14 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        function enviarMensagem() {
-            const mensagem = document.getElementById('prompt').value;
-
-            // Limpa o campo de entrada
-            document.getElementById("prompt").value = "";
+        function enviarMensagem(mensagem) {
 
             const dados = {
                 usuario: 'Usuário',
                 mensagem: mensagem
             };
 
-            axios.post('https://render-9441.onrender.com/historico', dados)
+            axios.post('https://render-e3fe.onrender.com/historico', dados)
                 .then(response => {
                     console.log('Resposta do servidor:', response.data);
                 })
